@@ -6,7 +6,7 @@
 /*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:00:59 by mg                #+#    #+#             */
-/*   Updated: 2024/10/22 21:06:40 by mg               ###   ########.fr       */
+/*   Updated: 2024/10/24 15:18:34 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,77 @@ static char	*read_n_stash(int fd, char *buf, char *stash)
 	return (stash);
 }
 
-//extraire la ligne 
-
-
-//checker cas d erreur dans gnl si la place
-
-
-int main()
+char	*extract_line(char *str)
 {
-	
+	int		i;
+	char	*line;
+
+	i = 0;
+	if (!str[i])
+		return (NULL);
+	while (str[i] && str[i] != '\n')
+		i++;
+	line = malloc(sizeof(char) * (i + 1));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != '\n')
+	{
+		line[i] = str[i];
+		i++;
+	}
+	if (str[i] == '\n')
+	{
+		line[i] = str[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+char	*next_in_stash(char *stash)
+{
+	int		i;
+	int		j;
+	char	*next_stash;
+
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (!stash)
+		return (NULL);
+	next_stash = malloc(sizeof(char) * (ft_strlen(stash) - i));
+	if (!next_stash)
+		retrun (NULL);
+	i++;
+	j = 0;
+	while (stash[i])
+	{
+		next_stash[j] = stash[i];
+		j++;
+		i++;
+	}
+	next_stash[j]  = '\0';
+	free(stash);
+	return (next_stash);
 }
 
 
+char	*get_next_line(int fd)
+{
+	static char	*stash;
+	char		*buf;
+	char		*line;
 
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
+		return (NULL);
+	stash = read_n_stash(fd, buf, stash);
+	free(buf);
+	if (!stash)
+		return (NULL);
+	line = extract_line(stash);
+	return (line);
+}
