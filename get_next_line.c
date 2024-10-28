@@ -6,7 +6,7 @@
 /*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:00:59 by mg                #+#    #+#             */
-/*   Updated: 2024/10/28 09:47:17 by mg               ###   ########.fr       */
+/*   Updated: 2024/10/28 10:14:29 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*extract_line(char *str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	line = malloc(sizeof(char) * (i + 1));
+	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -76,13 +76,13 @@ char	*next_in_stash(char *stash)
 	char	*next_stash;
 
 	i = 0;
-	while (stash[i] && stash[i] != '\n')
-		i++;
 	if (!stash)
 		return (NULL);
-	next_stash = malloc(sizeof(char) * (ft_strlen(stash) - i));
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	next_stash = malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
 	if (!next_stash)
-		retrun (NULL);
+		return (NULL);
 	i++;
 	j = 0;
 	while (stash[i])
@@ -112,5 +112,6 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = extract_line(stash);
+	stash = next_in_stash(stash);
 	return (line);
 }

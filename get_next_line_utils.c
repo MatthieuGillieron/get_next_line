@@ -6,17 +6,19 @@
 /*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:47:00 by mg                #+#    #+#             */
-/*   Updated: 2024/10/28 09:50:13 by mg               ###   ########.fr       */
+/*   Updated: 2024/10/28 10:26:19 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 		i++;
 	return (i);
@@ -25,6 +27,8 @@ int	ft_strlen(char *str)
 /* affcihe suite (i = o : hello wordl -> o world)*/
 char	*ft_strchr(const char *src, int i)
 {
+	if (!src)
+		return (NULL);
 	while (*src)
 	{
 		if (*src == i)
@@ -36,7 +40,7 @@ char	*ft_strchr(const char *src, int i)
 	return (0);
 }
 
-char	ft_strdup(const char *src)
+char	*ft_strdup(const char *src)
 {
 	int		i;
 	int		len;
@@ -44,7 +48,7 @@ char	ft_strdup(const char *src)
 
 	i = 0;
 	len = ft_strlen(src);
-	str = malloc(sizeof(char *) * (len + 1));
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (str);
 	while (i < len)
@@ -56,7 +60,7 @@ char	ft_strdup(const char *src)
 	return (str);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;

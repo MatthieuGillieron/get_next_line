@@ -6,7 +6,7 @@
 /*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:01:02 by mg                #+#    #+#             */
-/*   Updated: 2024/10/28 09:46:23 by mg               ###   ########.fr       */
+/*   Updated: 2024/10/28 10:29:08 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@
 #  define BUFFER_SIZE 12
 # endif
 
-static char	*read_n_stash(int fd, char *buf, char *stash);
 char		*extract_line(char *str);
 char		*next_in_stash(char *stash);
 char		*get_next_line(int fd);
 
-int			ft_strlen(char *str);
+int			ft_strlen(const char *str);
 char		*ft_strchr(const char *src, int i);
-char		ft_strdup(const char *src);
-char		*ft_strjoin(const char *s1, const char *s2);
+char		*ft_strdup(const char *src);
+char		*ft_strjoin(char const *s1, char const *s2);
 
 #endif
