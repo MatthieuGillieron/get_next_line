@@ -6,7 +6,7 @@
 /*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:47:00 by mg                #+#    #+#             */
-/*   Updated: 2024/10/23 13:25:53 by mg               ###   ########.fr       */
+/*   Updated: 2024/10/28 09:50:13 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-// affcihe suite (i = o : hello wordl -> o world)
+
+/* affcihe suite (i = o : hello wordl -> o world)*/
 char	*ft_strchr(const char *src, int i)
 {
 	while (*src)
@@ -63,7 +64,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
-
 	str = malloc(sizeof(char *) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
@@ -77,6 +77,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		str[i + j] = s2[j];
 		j++;
 	}
-	str[i  +j] = '\0';
+	str[i + j] = '\0';
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:01:02 by mg                #+#    #+#             */
-/*   Updated: 2024/10/23 13:25:24 by mg               ###   ########.fr       */
+/*   Updated: 2024/10/28 09:46:23 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <sys/uio.h>
 
 # ifndef BUFFER_SIZE
-#	define BUFFER_SIZE 12
+#  define BUFFER_SIZE 12
 # endif
 
 static char	*read_n_stash(int fd, char *buf, char *stash);

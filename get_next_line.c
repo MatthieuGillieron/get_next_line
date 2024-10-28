@@ -6,7 +6,7 @@
 /*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:00:59 by mg                #+#    #+#             */
-/*   Updated: 2024/10/24 15:18:34 by mg               ###   ########.fr       */
+/*   Updated: 2024/10/28 09:47:17 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,10 @@ char	*next_in_stash(char *stash)
 		j++;
 		i++;
 	}
-	next_stash[j]  = '\0';
+	next_stash[j] = '\0';
 	free(stash);
 	return (next_stash);
 }
-
 
 char	*get_next_line(int fd)
 {
