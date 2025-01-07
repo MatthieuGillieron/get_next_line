@@ -1,4 +1,4 @@
-# GET_NEXT_LINE
+# GET_NEXT_LINE - Projet 42
 
 Le projet **get_next_line** consiste à implémenter une fonction capable de lire une ligne à la fois à partir d’un descripteur de fichier. Ce projet vise à maîtriser la gestion des entrées/sorties, la manipulation de buffers et la gestion dynamique de la mémoire en langage C.
 
