@@ -1,4 +1,6 @@
-# GET_NEXT_LINE - Projet 42
+# Get_next_line - Projet 42
+
+[![English](https://img.shields.io/badge/English-blue.svg)](./READMEen.md)   [![Français](https://img.shields.io/badge/Français-gray.svg)](./README.md)
 
 Le projet **get_next_line** consiste à implémenter une fonction capable de lire une ligne à la fois à partir d’un descripteur de fichier. Ce projet vise à maîtriser la gestion des entrées/sorties, la manipulation de buffers et la gestion dynamique de la mémoire en langage C.
 
